@@ -19,7 +19,7 @@ terfogatvalt = [1000, 1000, 1000, 1000, 1000]
 urtartalom = ["mm3", "cm3", "dm3", "m3", "l", "kl"]
 urtartalomvalt = [1000, 1000, 1000, 1000, 1000]
 
-"""!!!!!!!!!!! Valtok befejezése !!!!!!!!!!!!!!!!!!!!"""
+# !!!!!!!!!!! Váltók befejezése !!!!!!!!!!!!!!!!!!!!
 
 def szamolo(nev):
     global muvelet
@@ -111,13 +111,21 @@ def build(nev):
     btn_cere = Button(program, text="Csere", bg="#f5a442",command=lambda: csere())
     btn_cere.place(relx=0.85, rely=0.4, anchor=tkinter.CENTER)
 
+    btn_vissza = Button(program, text="Vissza", bg="#0a9bf0", command=program.destroy) #VISSZA GOMB
+    btn_vissza.place(relx=0.85, rely=0.65, anchor=tkinter.CENTER)
+
     lbl_eredmeny = Label(program, text=f"", bg="green", fg="white") # !!!!!!!!!
-    lbl_eredmeny.place(relx=0.85, rely=0.65, anchor=tkinter.CENTER)
+    lbl_eredmeny.place(relx=0.85, rely=0.25, anchor=tkinter.CENTER)
 
 
 def start():
     tipus = clicked.get()
     build(tipus)
+
+def quit():
+    root.destroy()
+
+
 
 root = Tk()
 root.title("Mértékegységváltó")
@@ -138,7 +146,7 @@ opt_program.place(relx=0.50, rely=0.35, anchor=tkinter.CENTER)
 
 btn_start = Button(root, text="Inditás", command=start)
 btn_start.place(relx=0.40, rely=0.55, anchor=tkinter.CENTER)
-btn_start = Button(root, text="Kilépés")
+btn_start = Button(root, text="Kilépés", command=quit)
 btn_start.place(relx=0.60, rely=0.55, anchor=tkinter.CENTER)
 
 root.mainloop()
