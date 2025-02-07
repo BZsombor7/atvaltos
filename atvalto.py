@@ -22,7 +22,7 @@ urtartalomvalt = [1000, 1000, 1000, 1000, 1000]
 """!!!!!!!!!!! Valtok befejezése !!!!!!!!!!!!!!!!!!!!"""
 
 def szamolo(nev):
-    global muvelet, valto
+    global muvelet
     mezo1 = ertek1.get()
     mezo2 = ertek2.get()
     bemenet =int(ent_mezo1.get())
@@ -42,7 +42,7 @@ def szamolo(nev):
     elif nev == "Térfogat":
         elso = terfogat.index(mezo1)
         masodik = terfogat.index(mezo2)
-        valto = teruletatvalt
+        valto =terfogatvalt
     elif nev == "Ürtartalom":
         elso = urtartalom.index(mezo1)
         masodik = urtartalom.index(mezo2)
@@ -69,7 +69,7 @@ def build(nev):
         global ertek1, ertek2
         seged = ertek1.get()
         ertek1.set(ertek2.get())
-        print(ertek1.get())
+        ertek2.set(seged)
         opt_ertek1.place(relx=0.50, rely=0.35, anchor=tkinter.CENTER)
         opt_ertek2.place(relx=0.50, rely=0.65, anchor=tkinter.CENTER)
         szamolo(nev)
